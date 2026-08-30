@@ -1,7 +1,6 @@
 import {useState} from 'react'
 
 function InputArrayUseState(){
-
     const [form, setForm] = useState([])
 
     function addUser (e){
@@ -11,6 +10,11 @@ function InputArrayUseState(){
         const Age = document.getElementById("userAge").value;
         const Sex = document.querySelector('input[name="userSex"]:checked')?.value;
         const Course = document.getElementById("userCourse").value;
+
+        if(firstName === "" || lastName === "" || Age === ""|| Sex === ""|| Course === ""){
+            alert("please fill in all fields");
+            return
+        }
 
 
         const userData = {

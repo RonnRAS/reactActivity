@@ -19,8 +19,18 @@ import CountActivityByBro from './CountActivityByBro'
 import UserInputuseState from './UserInputuseState'
 */}
 
+{/* act 6 input value 
 import InputArrayUseState from './InputArrayUseState.jsx'
 import './index.css'
+*/}
+
+{/**/}
+
+{/* act 7
+import TableOfUser from "./TableOfUser"
+*/}
+
+import RegisterAccount from "./registrationForm/RegisterAccount"
 
 function App() {
 
@@ -59,8 +69,15 @@ function App() {
       <UserInputuseState />
       */}
 
+      {/* act 6 input value 
       <InputArrayUseState />
+      */}
 
+      {/* act 7
+      <TableOfUser/>
+      */}
+
+      <RegisterAccount/>
 
     </>
   )
