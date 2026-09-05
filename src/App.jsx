@@ -1,3 +1,6 @@
+import { Routes, Route } from "react-router-dom"
+import { Suspense } from 'react'
+
 {/* Activity1 render diff kind of heads/text using prop
   import StudentStatus from './StudentStatus.jsx'
   import StudentId  from './StudentId'
@@ -30,7 +33,16 @@ import './index.css'
 import TableOfUser from "./TableOfUser"
 */}
 
-import RegisterAccount from "./registrationForm/RegisterAccount"
+{/* act 8 with validation regis and login */}
+import LoginForm from "./pages/LoginForm"
+import RegisterAccount from "./pages/RegisterAccount"
+import NavBar from "./components/NavBar"
+import Access from "./pages/Access"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Admin from "./pages/Admin"
+import Error404 from "./pages/Error404"
+import AuthProvider from "./service/Auth"
 
 function App() {
 
@@ -77,8 +89,24 @@ function App() {
       <TableOfUser/>
       */}
 
-      <RegisterAccount/>
+      {/* act 8
+      <RegisterAccount />
+      */}
+      <AuthProvider>
+      <NavBar/>
 
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/About' element={<About/>}/>
+        <Route path="/Access" element={<Access/>}>
+          <Route index element={<LoginForm/>}/>
+          <Route path="login" element={<LoginForm/>} />
+          <Route path="register" element={<RegisterAccount/>} />
+        </Route>
+        <Route path="/Admin" element={<Admin/>}/>
+        <Route path="*" element={<Error404/>}/>
+      </Routes>
+      </AuthProvider>
     </>
   )
 }
